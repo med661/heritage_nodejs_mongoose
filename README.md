@@ -1,5 +1,5 @@
 # heritage_nodejs_mongoose
-the user heritage of the Provider ,
+the Provider heritage of the user ,
 
 the collection item is the name of collection on mongodb
 
