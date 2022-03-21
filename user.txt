@@ -1,0 +1,50 @@
+const mongoose = require('mongoose'); // Erase if already required
+const bcrypt=require('bcrypt')
+const baseOption={
+    discriminatorKey:'itemtype',
+    collection:'items'
+
+};
+var userSchema = new mongoose.Schema({
+    name:{
+        type:String,
+        required:true,
+    },
+    lastname:{
+        type:String,
+        required:true,
+    },
+    email:{
+        type:String,
+        required:true,
+        unique:true,
+        index:true
+    },
+    mobile:{
+        type:Number,
+        required:true,
+        unique:true,
+        index:true
+
+    },
+    password:{
+        type:String,
+        required:true,
+        
+    },
+  
+    image:{
+        type:String,
+        trim:true
+
+    },
+    
+},baseOption,{timestamps:true});
+
+//Export the model
+userSchema.pre("save",function(next){
+    this.password=bcrypt.hashSync(this.password,10)
+    next();
+
+})
+module.exports = mongoose.model('User', userSchema);
