@@ -15,6 +15,7 @@ on the Provider collection
 
 Step 1: Import the User Schema
 const userModel = require('./UserModel');
+
 Step 2: Add Attributes for the Provider Schema
 const ProviderSchema = new mongoose.Schema({
     company: {
