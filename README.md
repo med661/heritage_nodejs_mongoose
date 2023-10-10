@@ -14,9 +14,11 @@ itemtype: it's the collection that inherits (in that case it's the Provider)
 on the Provider collection  
 
 Step 1: Import the User Schema
+
 const userModel = require('./UserModel');
 
 Step 2: Add Attributes for the Provider Schema
+
 const ProviderSchema = new mongoose.Schema({
     company: {
         type: String,
@@ -27,10 +29,12 @@ const ProviderSchema = new mongoose.Schema({
 })
 
 Step 3: Set Up the Discriminator
+
 // Create the 'Provider' sub-model
 const Provider = userModel.discriminator('Provider', ProviderSchema);
 
 Step 4: Export the Provider Model
+
 module.exports = Provider;
 
 
